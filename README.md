@@ -35,6 +35,9 @@ following simple step to reproduce the image (qcow2) :
    #resize the image into new image
    virt-resize --quiet --expand /dev/sda1 $VM.qcow2 $VM.new.image
    
+   #rename new image overwriting the original one
+   mv $VM.new.image $VM.qcow2
+   
    #create cloud-init iso file with system customization
    mkisofs -o $VM-cidata.iso -V cidata -J -r user-data meta-data
    
