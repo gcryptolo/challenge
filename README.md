@@ -5,10 +5,10 @@ example project for creation of 2 VM Centos8 with Docker e Swarm, with 40GB each
 # Prerequisiti
  Linux SO with KVM
  
-# Preparazione VM Centos
+# VM Centos 8 preparation
 I started from Centos 8 Cloud image but it is only 8GB so I use cloud-init script to customize the image to ssh into with my rsa key.
 following simple step to reproduce the image (qcow2) :
-'''
+```
    #set your work directory
    WORKDIR=<<your_workdir_path>>
    
@@ -43,4 +43,4 @@ following simple step to reproduce the image (qcow2) :
    
    #install nad start VM mounting iso generated in previous step as cdrom for cloud-init
    virt-install --import --name $VM --memory 4096 --vcpus 2 --cpu host --disk $VM.qcow2,format=qcow2,bus=virtio --disk $VM-cidata.iso,device=cdrom --network bridge=virbr0,model=virtio --os-type=linux --os-variant=centos8 --graphics spice --noautoconsole
- '''
+ ```
