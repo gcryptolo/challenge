@@ -2,10 +2,11 @@
 example project for creation of 2 VM Centos8 with Docker e Swarm, with 40GB each for Doker partition
 
 
-# Prerequisiti
+## prerequisites
+
  Linux SO with KVM
  
-# VM Centos 8 preparation
+### 1-Step prepare VM Centos 8 template image
 I started from Centos 8 Cloud image but it is only 8GB so I use cloud-init script to customize the image to ssh into with my rsa key.
 following simple step to reproduce the image (qcow2) :
 ```
