@@ -47,4 +47,25 @@ following simple step to reproduce the image (qcow2) :
    
    #install nad start VM mounting iso generated in previous step as cdrom for cloud-init
    virt-install --import --name $VM --memory 4096 --vcpus 2 --cpu host --disk $VM.qcow2,format=qcow2,bus=virtio --disk $VM-cidata.iso,device=cdrom --network bridge=virbr0,model=virtio --os-type=linux --os-variant=centos8 --graphics spice --noautoconsole
+   
+   #install vagrant
+   sudo dnf install vagrant
+   
+   #install vagrant-libvirt for KVM
+   sudo dnf install vagrant-libvirt
+   
+   #dowload utility to convert qcow2 row image into vagrant box
+   wget https://raw.githubusercontent.com/vagrant-libvirt/vagrant-libvirt/master/tools/create_box.sh
+   
+   #give it permission
+   chmod 775 create_box.sh 
+   
+   #create box file
+   ./create_box.sh $VM.qcow2
+   
+   #import created box into vagrant box modify your VM name from "gcryptolo/Centos-8" into your name
+   vagrant box add gcryptolo/Centos-8 $VM.box
+   
+   #init the image (change to your VM name)
+   vagrant init gcryptolo/Centos-8
  ```
