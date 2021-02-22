@@ -1,5 +1,5 @@
 # challenge
-example project for creation of 2 VM Centos8 with Docker e Swarm, with 40GB each for Doker partition
+example project for creation of 2 VM Centos8 with Docker e Swarm, with 40GB each for Docker partition
 
 
 ## prerequisites
